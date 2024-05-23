@@ -1,0 +1,123 @@
+/* CSS Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --primary-font-family: "Poppins", sans-serif;
+  --primary-background-color: #06283d;
+  --secondary-background-color: #ffffff;
+  --primary-text-color: #06283d;
+  --button-text-color: #06283d;
+  --button-background-color: #dff6ff;
+  --button-text-color-hover: #ffffff;
+  --button-background-color-hover: #06283d;
+  --icon-color: #06283d;
+}
+
+html {
+  font-family: var(--primary-font-family);
+  font-size: 16px;
+}
+
+/* General Container */
+.general-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-background-color);
+  min-height: 100vh;
+}
+
+/* Card Container */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* remove above -> position relative*/
+  align-items: center;
+  background-color: var(--secondary-background-color);
+  width: 40%;
+  height: 600px;
+  border-radius: 20px;
+  padding: 28px 32px;
+}
+
+/* Search Box */
+.search-box {
+  border: 3px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: min-content; /* necessary??? */
+}
+
+.search-box i {
+  color: var(--icon-color);
+  font-size: 1.5rem;
+}
+
+.search-box input {
+  color: var(--primary-text-color);
+  width: 80%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  border: none;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+.search-box button {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
+  border-radius: 50%;
+  border: none;
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.search-box button:hover {
+  color: var(--button-text-color-hover);
+  background-color: var(--button-background-color-hover);
+}
+
+/* Weather Information */
+.weather-information {
+  border: 3px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80%;
+}
+
+/* .weather-icon {
+} */
+
+.temperature {
+  color: var(--primary-text-color);
+  font-size: 4rem;
+  font-weight: 600;
+  /* margin-top: 30px;
+  margin-left: -16px; */
+}
+
+.condition {
+  color: var(--primary-text-color);
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+/* Weather Details */
+.weather-details {
+  border: 3px solid green;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}

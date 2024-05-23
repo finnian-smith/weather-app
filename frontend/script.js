@@ -1,7 +1,9 @@
-const city = document.querySelector(".location-name");
-const temperature = document.querySelector(".location-temperature");
+import createForecastItem from "./components/weather-forecast.js";
+
+const city = document.querySelector(".name");
+const temperature = document.querySelector(".temperature");
 const icon = document.querySelector("img");
-const condition = document.querySelector(".location-condition");
+const condition = document.querySelector(".condition");
 
 async function getWeather(query) {
   try {
@@ -22,4 +24,4 @@ async function getWeather(query) {
   }
 }
 
-getWeather("DUB");
+getWeather("New York");
