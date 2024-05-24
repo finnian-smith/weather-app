@@ -1,6 +1,7 @@
 @import url("search-box.css");
 @import url("current-weather.css");
 @import url("weather-forecast.css");
+@import url("empty-result.css");
 
 /* CSS Reset */
 * {

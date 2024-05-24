@@ -1,6 +1,7 @@
 import createCurrentWeatherItem from "./components/current-weather.js";
 import createForecastItem from "./components/weather-forecast.js";
 import { getCustomIcon } from "../frontend/weather-icons.js";
+import createEmptyResultItem from "./components/empty-result.js";
 
 const weatherInformation = document.querySelector(".weather-information");
 const weatherForecast = document.querySelector(".weather-forecast");
@@ -19,8 +20,7 @@ export async function getCurrentWeather(query) {
     weatherInformation.innerHTML = "";
 
     if (data.error) {
-      weatherInformation.innerHTML =
-        "<p>No weather data found for the entered location</p>";
+      weatherInformation.appendChild(createEmptyResultItem());
       return;
     }
 
