@@ -1,8 +1,6 @@
 const forecast = document.querySelector(".weather-forecast");
 
 function createForecastItem(date, icon, maxTemp, minTemp) {
-  // forecast.textContent = "";
-
   const forecastItem = document.createElement("div");
   forecastItem.classList.add("forecast-item");
 

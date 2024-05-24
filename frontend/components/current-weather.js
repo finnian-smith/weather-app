@@ -1,11 +1,6 @@
 const currentWeather = document.querySelector(".weather-information");
 
 function createCurrentWeatherItem(icon, temperature, condition) {
-  // currentWeather.textContent = "";
-
-  //   const currentWeather = document.createElement("div");
-  //   currentWeather.classList.add("forecast-item");
-
   const weatherIcon = document.createElement("img");
   weatherIcon.classList.add("weather-icon");
   weatherIcon.src = icon;

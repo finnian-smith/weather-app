@@ -1,11 +1,26 @@
+import createSearchBoxItem from "./components/search-box.js";
 import createCurrentWeatherItem from "./components/current-weather.js";
 import createForecastItem from "./components/weather-forecast.js";
 import { getCustomIcon } from "../frontend/weather-icons.js";
 
-const city = document.querySelector(".name");
+createSearchBoxItem();
 
-const testQuery = "Sydney";
+const searchForm = document.querySelector(".search-form");
+const locationInput = document.querySelector(".search-name");
+const weatherInformation = document.querySelector(".weather-information");
+const weatherForecast = document.querySelector(".weather-forecast");
 
+// event listener for location
+searchForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const query = locationInput.value;
+  if (query) {
+    getCurrentWeather(query);
+    getForecastWeather(query);
+  }
+});
+
+// get current weather
 async function getCurrentWeather(query) {
   try {
     const response = await fetch(
@@ -16,8 +31,7 @@ async function getCurrentWeather(query) {
     );
     const data = await response.json();
 
-    // need to handle this
-    city.textContent = data.location.name;
+    weatherInformation.innerHTML = "";
 
     const icon = getCustomIcon(data.current.condition.code);
     const temperature = data.current.temp_c;
@@ -29,8 +43,7 @@ async function getCurrentWeather(query) {
   }
 }
 
-getCurrentWeather(testQuery);
-
+// get forecast weather
 async function getForecastWeather(query) {
   try {
     const response = await fetch(
@@ -40,6 +53,8 @@ async function getForecastWeather(query) {
       }
     );
     const data = await response.json();
+
+    weatherForecast.innerHTML = "";
 
     data.forecast.forecastday.forEach((item) => {
       const [year, month, day] = item.date.split("-");
@@ -55,5 +70,3 @@ async function getForecastWeather(query) {
     console.error("Error fetching weather data:", error);
   }
 }
-
-getForecastWeather(testQuery);

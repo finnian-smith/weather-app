@@ -1,5 +1,4 @@
 .weather-forecast {
-  border: 3px solid black;
   display: flex;
   flex-direction: row;
   justify-content: space-around; /* make between if putting H & L side by side */
@@ -7,7 +6,6 @@
 }
 
 .forecast-item {
-  border: 3px solid pink;
   display: flex;
   flex-direction: column;
   justify-content: center;
