@@ -1,7 +1,9 @@
 import createSearchBoxItem from "./components/search-box.js";
-import { handleSearchSubmit } from "./event-handlers.js";
+import { loadDemo, handleSearchSubmit } from "./event-handlers.js";
 
 createSearchBoxItem();
+
+loadDemo();
 
 const searchForm = document.querySelector(".search-form");
 
