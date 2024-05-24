@@ -26,6 +26,20 @@ app.get("/current-weather", async (req, res) => {
   }
 });
 
+app.get("/forecast-weather", async (req, res) => {
+  const query = req.query.q;
+  const days = 3;
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${query}&days=${days}`;
+
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ error: "Failed to fetch data from Weather API" });
+  }
+});
+
 // start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);

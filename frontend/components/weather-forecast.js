@@ -1,27 +1,31 @@
 const forecast = document.querySelector(".weather-forecast");
 
-function createForecastItem() {
+function createForecastItem(date, icon, maxTemp, minTemp) {
   // forecast.textContent = "";
 
   const forecastItem = document.createElement("div");
   forecastItem.classList.add("forecast-item");
 
-  const date = document.createElement("p");
-  date.classList.add("forecast-date");
+  const forecastDate = document.createElement("p");
+  forecastDate.classList.add("forecast-date");
+  forecastDate.textContent = date;
 
-  const image = document.createElement("img");
-  image.classList.add("forecast-icon");
+  const forecastIcon = document.createElement("img");
+  forecastIcon.classList.add("forecast-icon");
+  forecastIcon.src = icon;
 
-  const temperature = document.createElement("p");
-  temperature.classList.add("forecast-temperature");
+  const forecastMaxTemp = document.createElement("p");
+  forecastMaxTemp.classList.add("forecast-max-temperature");
+  forecastMaxTemp.textContent = "H: " + maxTemp + "°";
 
-  const condition = document.createElement("p");
-  condition.classList.add("forecast-condition");
+  const forecastMinTemp = document.createElement("p");
+  forecastMinTemp.classList.add("forecast-min-temperature");
+  forecastMinTemp.textContent = "L: " + minTemp + "°";
 
-  forecastItem.appendChild(date);
-  forecastItem.appendChild(image);
-  forecastItem.appendChild(temperature);
-  forecastItem.appendChild(condition);
+  forecastItem.appendChild(forecastDate);
+  forecastItem.appendChild(forecastIcon);
+  forecastItem.appendChild(forecastMaxTemp);
+  forecastItem.appendChild(forecastMinTemp);
 
   forecast.appendChild(forecastItem);
 }
