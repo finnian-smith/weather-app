@@ -1,5 +1,6 @@
 import createCurrentWeatherItem from "./components/current-weather.js";
 import createForecastItem from "./components/weather-forecast.js";
+import { getCustomIcon } from "../frontend/weather-icons.js";
 
 const city = document.querySelector(".name");
 
@@ -18,7 +19,7 @@ async function getCurrentWeather(query) {
     // need to handle this
     city.textContent = data.location.name;
 
-    const icon = data.current.condition.icon;
+    const icon = getCustomIcon(data.current.condition.code);
     const temperature = data.current.temp_c;
     const condition = data.current.condition.text;
 
@@ -44,7 +45,7 @@ async function getForecastWeather(query) {
       const [year, month, day] = item.date.split("-");
 
       const date = `${day}/${month}`;
-      const icon = item.day.condition.icon;
+      const icon = getCustomIcon(item.day.condition.code);
       const maxTemp = item.day.maxtemp_c;
       const minTemp = item.day.mintemp_c;
 
