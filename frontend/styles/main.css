@@ -40,8 +40,7 @@ html {
 .card-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  /* remove above -> position relative*/
+  justify-content: space-between;
   align-items: center;
   background-color: var(--secondary-background-color);
   width: 40%;
